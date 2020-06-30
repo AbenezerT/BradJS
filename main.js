@@ -66,6 +66,8 @@ console.log(myText[1].species);
 
 */
 
+
+
 //Decisions
 
 
@@ -87,12 +89,11 @@ console.log(myText[1].species);
 // }
 
 
+
+/*
 //Higher-order function
 
 
-// document.addEventListener('click', ourAmazingFunction => {
-//     alert("Good")
-// })
 
 
 function createmultiplier(multiplier){
@@ -103,3 +104,124 @@ function createmultiplier(multiplier){
 let doubleME = createmultiplier(2)
 let tripleMe = createmultiplier(3)
 console.log(tripleMe(20));
+
+let myColors = ['red', 'orange', 'yellow']
+
+myColors.forEach(saySomthingNice)
+
+function saySomthingNice(color){
+ console.log("The color " + color + " is a grate color");
+ 
+}
+
+
+let pets = [
+    {
+        name: "Meowsalot",
+        species: "Cat",
+        age: 2
+    },
+      {
+          name: "Barksalot",
+          species: "dog",
+          age: 3,
+      },
+          {
+          name: "purrsloud",
+          species:"Cat",
+          age: 8
+          }
+      
+    ]
+    pets.push(
+        {
+         name:"puppster",
+         species: "dog",
+         age: 1   
+})
+// console.log(pets);
+
+let ourTest = pets.map(nameOnly)
+
+function nameOnly(x){
+    return x.name
+}
+console.log(ourTest);
+
+
+let dogs = pets.filter(dogsOnly)
+
+function dogsOnly(x){
+    return x.species == "dog"
+}
+console.log(dogs)
+
+function onlyBabies(x){
+
+ return x.age < 3
+}
+
+let babyDogName = pets.filter(dogsOnly).filter(onlyBabies).map(nameOnly);
+
+console.log(babyDogName);
+
+*/
+
+
+
+
+
+
+//Scope & context
+
+
+let myName = "Abenezer"
+
+// let uses bloke scope 
+// var uses function scope
+
+
+function amazingFunction(){
+        // let myName = "Abenezer Junior"
+        if(2+2 == 4){
+            var myName = "Abenezer the 3rd"
+            //console.log("inside the if statement", myName);
+        }
+             //console.log("inside our function", myName);
+            
+}
+
+amazingFunction()
+console.log("in the global scope", myName);
+
+
+
+// context 
+
+
+let john = {
+    firstName : "John",
+    lastName : "doe",
+    driver(){
+        function imAfunctionNotAMethod(){
+            console.log(this);
+            
+        }
+
+        imAfunctionNotAMethod();
+        console.log(this.firstName + " " + this.lastName + " is driving a car");
+        
+    }
+}
+john.driver()
+
+
+function breather(){
+    console.log(this.firstName + " " + this.lastName + " Just inhaled and exhaled");
+}
+
+breather.call(john)
+
+
+
+
