@@ -197,7 +197,7 @@ console.log("in the global scope", myName);
 
 
 // context 
-
+/*
 
 let john = {
     firstName : "John",
@@ -221,6 +221,28 @@ function breather(){
 }
 
 breather.call(john)
+
+
+*/
+
+
+//anonymous Function
+
+document.addEventListener('click', function(){
+    alert("Good")
+});
+//Arrow function
+document.addEventListener('click', ()=> alert("Good"))
+
+
+let myNumbers = [10, 500, 2000]
+
+let doubledNumber = myNumbers.map( x => x * 2);
+
+console.log(doubledNumber);
+
+let myname = "Abenezer"
+console.log(`My name is ${myname}`)
 
 
 
